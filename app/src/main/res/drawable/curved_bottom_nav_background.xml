@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Define the solid color of the navigation bar -->
+    <solid android:color="@color/grey_shade" />
+
+    <!-- Define the rounded corners of the navigation bar -->
+    <corners
+        android:topLeftRadius="@dimen/_15sdp"
+        android:topRightRadius="@dimen/_15sdp" />
+</shape>

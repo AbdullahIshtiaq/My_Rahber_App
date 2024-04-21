@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ProfileFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/student_profile_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:text="@string/my_profile"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_text_dark"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/grey_shade"
+                    app:layout_constraintTop_toBottomOf="@id/student_profile_textview" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/profile_imageview"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:background="@drawable/circular_shape_img"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mock_pic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider_line" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/student_name_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_text_dark"
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_imageview"
+                    tools:text="Jennifer Austin" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/student_email_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_text_dark"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/student_name_textview"
+                    tools:text="student@uni.com" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/student_email_textview">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/student_enrolled_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@color/grey_shade"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_10sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_enroll"
+                                    android:tint="@color/black_text_dark" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="5"
+                                    android:text="@string/enrolled_courses"
+                                    android:textColor="@color/black_text_dark"
+                                    android:textSize="@dimen/_16ssp" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/enrolled_courses_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:padding="@dimen/_5sdp"
+                                    android:textColor="@color/black_text_dark"
+                                    android:textSize="@dimen/_12ssp"
+                                    tools:text="15" />
+
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/enrolled_courses_profile"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:orientation="vertical"
+                                android:visibility="gone"
+                                tools:listitem="@layout/item_single_text" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/course_completed_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@color/grey_shade"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_10sdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_weight="1"
+                                android:src="@drawable/ic_complete"
+                                android:tint="@color/black_text_dark" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:text="@string/course_completed"
+                                android:textColor="@color/black_text_dark"
+                                android:textSize="@dimen/_16ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/_5sdp"
+                                android:text="@string/_10"
+                                android:textColor="@color/black_text_dark"
+                                android:textSize="@dimen/_12ssp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/course_time_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@color/grey_shade"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_10sdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_weight="1"
+                                android:src="@drawable/ic_timer"
+                                android:tint="@color/black_text_dark" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:text="@string/total_learning_time"
+                                android:textColor="@color/black_text_dark"
+                                android:textSize="@dimen/_16ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/_5sdp"
+                                android:text="@string/_24"
+                                android:textColor="@color/black_text_dark"
+                                android:textSize="@dimen/_12ssp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/student_skill_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@color/grey_shade"
+                        android:elevation="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_10sdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_weight="1"
+                                android:src="@drawable/ic_bagde"
+                                android:tint="@color/black_text_dark" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="6"
+                                android:text="@string/skill_earned"
+                                android:textColor="@color/black_text_dark"
+                                android:textSize="@dimen/_16ssp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:padding="@dimen/_5sdp"
+                                android:text="@string/_15"
+                                android:textColor="@color/black_text_dark"
+                                android:textSize="@dimen/_12ssp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+</layout>
